@@ -1,0 +1,893 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBDB0295-9CC1-43BD-9F6C-E4825DA94CB7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NBSSGK.ZHCG.WebAPI</RootNamespace>
+    <AssemblyName>NBSSGK.ZHCG.WebAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\NBSSGK.ZHCG.Utility\binDLL\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Attributes\LoggingFilterAttribute.cs" />
+    <Compile Include="Controllers\CarController.cs" />
+    <Compile Include="Controllers\CarPatrolLineController.cs" />
+    <Compile Include="Controllers\CarPatrolPlanController.cs" />
+    <Compile Include="Controllers\DutyPlanController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserPatrolLineController.cs" />
+    <Compile Include="Controllers\UserPatrolPlanController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\controller\CarProwledPlan.js" />
+    <Content Include="app\controller\CarProwledRoute.js" />
+    <Content Include="app\controller\ContentLeft.js" />
+    <Content Include="app\controller\PersonArrangePlan.js" />
+    <Content Include="app\controller\PersonProwledPlan.js" />
+    <Content Include="app\controller\PersonProwledRoute.js" />
+    <Content Include="app\model\Car.js" />
+    <Content Include="app\model\CarProwledPlan.js" />
+    <Content Include="app\model\CarProwledRoute.js" />
+    <Content Include="app\model\Person.js" />
+    <Content Include="app\model\PersonArrangePlan.js" />
+    <Content Include="app\model\PersonProwledPlan.js" />
+    <Content Include="app\model\PersonProwledRoute.js" />
+    <Content Include="app\store\CarProwledPlanPage.js" />
+    <Content Include="app\store\CarProwledRoutePage.js" />
+    <Content Include="app\store\CarPage.js" />
+    <Content Include="app\store\PersonArrangePage.js" />
+    <Content Include="app\store\PersonArrangePageStor.js" />
+    <Content Include="app\store\PersonArrangePlanPage.js" />
+    <Content Include="app\store\PersonPage.js" />
+    <Content Include="app\store\PersonProwledPlanPage.js" />
+    <Content Include="app\store\PersonProwledRoutePage.js" />
+    <Content Include="app\store\RegionStore.js" />
+    <Content Include="app\ux\ArcgisMapWindow.js" />
+    <Content Include="app\ux\LargeImageWindow.js" />
+    <Content Include="app\ux\Window.js" />
+    <Content Include="app\view\car\CarProwledPlanAdd.js" />
+    <Content Include="app\view\car\CarProwledPlanEdit.js" />
+    <Content Include="app\view\car\CarProwledPlanList.js" />
+    <Content Include="app\view\car\CarProwledPlanLook.js" />
+    <Content Include="app\view\car\CarProwledPlanQuery.js" />
+    <Content Include="app\view\car\CarProwledRouteAdd.js" />
+    <Content Include="app\view\car\CarProwledRouteEdit.js" />
+    <Content Include="app\view\car\CarProwledRouteList.js" />
+    <Content Include="app\view\car\CarProwledRouteLook.js" />
+    <Content Include="app\view\car\CarProwledRouteQuery.js" />
+    <Content Include="app\view\ContentCenter.js" />
+    <Content Include="app\view\ContentLeft.js" />
+    <Content Include="app\view\person\PersonArrangePlanAdd.js" />
+    <Content Include="app\view\person\PersonArrangePlanEdit.js" />
+    <Content Include="app\view\person\PersonArrangePlanList.js" />
+    <Content Include="app\view\person\PersonArrangePlanLook.js" />
+    <Content Include="app\view\person\PersonArrangePlanQuery.js" />
+    <Content Include="app\view\person\PersonProwledPlanAdd.js" />
+    <Content Include="app\view\person\PersonProwledPlanEdit.js" />
+    <Content Include="app\view\person\PersonProwledPlanList.js" />
+    <Content Include="app\view\person\PersonProwledPlanLook.js" />
+    <Content Include="app\view\person\PersonProwledPlanQuery.js" />
+    <Content Include="app\view\person\PersonProwledRouteAdd.js" />
+    <Content Include="app\view\person\PersonProwledRouteEdit.js" />
+    <Content Include="app\view\person\PersonProwledRouteList.js" />
+    <Content Include="app\view\person\PersonProwledRouteLook.js" />
+    <Content Include="app\view\person\PersonProwledRouteQuery.js" />
+    <Content Include="app\view\person\PersonQuery.js" />
+    <Content Include="app\view\Viewport.js" />
+    <Content Include="ClientBin\ArcGISMapApp.xap" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Css\StyleSheet.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\default_logo.png" />
+    <Content Include="Images\icon\搜索.png" />
+    <Content Include="Index.html" />
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\arcgisMap.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\configs.js" />
+    <Content Include="Scripts\extjs\ext-all-debug.js" />
+    <Content Include="Scripts\extjs\ext-all.js" />
+    <Content Include="Scripts\extjs\locale-zh_CN.js" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\demo-files\demo.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\demo-files\demo.js" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\demo.html" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\Read Me.txt" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\style.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-arrow-open-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-arrow-open.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-scroll-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-scroll-right.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-split-arrow-open-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-split-arrow-open.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-split-arrow-over-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-split-arrow-over.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-split-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\breadcrumb\default-split-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn-group\btn-group-default-framed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn-group\btn-group-default-framed-notitle-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn-group\btn-group-default-framed-notitle-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn-group\btn-group-default-framed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-large-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-medium-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-small-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-large-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-medium-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-default-toolbar-small-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-large-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-medium-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-focus-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-focus-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-focus-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-pressed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-pressed-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\btn\btn-plain-toolbar-small-pressed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-large-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-large-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-large-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-large-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-large-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-large-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-medium-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-medium-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-medium-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-medium-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-medium-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-medium-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-small-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-small-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-small-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-small-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-small-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-small-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-large-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-large-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-large-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-large-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-large-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-large-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-medium-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-medium-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-medium-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-medium-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-medium-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-medium-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-small-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-small-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-small-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-small-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-small-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\default-toolbar-small-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\grid-cell-small-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\grid-cell-small-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\grid-cell-small-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\grid-cell-small-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\grid-cell-small-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-large-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-large-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-large-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-large-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-large-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-large-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-medium-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-medium-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-medium-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-medium-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-medium-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-medium-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-small-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-small-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-small-s-arrow-b-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-small-s-arrow-b.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-small-s-arrow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\button\plain-toolbar-small-s-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\datepicker\arrow-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\datepicker\arrow-right.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\datepicker\month-arrow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\dd\drop-add.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\dd\drop-no.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\dd\drop-yes.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\editor\tb-sprite.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\fieldset\collapse-tool.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\checkbox.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\clear-trigger-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\clear-trigger.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\date-trigger-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\date-trigger.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\exclamation.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\radio.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\search-trigger-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\search-trigger.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\spinner-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\spinner.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\tag-field-item-close.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\trigger-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\form\trigger.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid-row-editor-buttons\grid-row-editor-buttons-default-bottom-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid-row-editor-buttons\grid-row-editor-buttons-default-bottom-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid-row-editor-buttons\grid-row-editor-buttons-default-top-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid-row-editor-buttons\grid-row-editor-buttons-default-top-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\col-move-bottom.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\col-move-top.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\columns.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\dd-insert-arrow-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\dd-insert-arrow-right.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\dirty-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\dirty.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\drop-no.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\drop-yes.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\filters\equals.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\filters\find.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\filters\greater_than.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\filters\less_than.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\group-by.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\group-collapse.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\group-expand.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\hd-pop.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\hmenu-asc.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\hmenu-desc.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\hmenu-lock.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\hmenu-unlock.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\loading.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\page-first.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\page-last.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\page-next.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\page-prev.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\pick-button.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\refresh.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\sort_asc.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\grid\sort_desc.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\loadmask\loading.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\magnify.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\menu\default-checked.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\menu\default-group-checked.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\menu\default-menu-parent-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\menu\default-menu-parent.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\menu\default-scroll-bottom.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\menu\default-scroll-top.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\menu\default-unchecked.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-bottom-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-bottom-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-bottom-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-bottom-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-left-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-left-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-left-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-right-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-right-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-right-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-top-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-collapsed-top-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-left-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-left-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-left-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-right-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-right-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-right-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-top-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-default-framed-top-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-bottom-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-bottom-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-bottom-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-bottom-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-left-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-left-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-left-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-right-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-right-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-right-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-top-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-collapsed-top-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-left-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-left-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-left-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-right-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-right-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-right-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-top-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel-header\panel-header-light-framed-top-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel\panel-default-framed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel\panel-default-framed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel\panel-light-framed-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\panel\panel-light-framed-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\shared\icon-error.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\shared\icon-info.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\shared\icon-question.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\shared\icon-warning.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\sizer\e-handle.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\sizer\ne-handle.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\sizer\nw-handle.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\sizer\s-handle.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\sizer\se-handle.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\sizer\sw-handle.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\slider\slider-bg.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\slider\slider-thumb.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\slider\slider-v-bg.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\slider\slider-v-thumb.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab-bar\default-plain-scroll-bottom.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab-bar\default-plain-scroll-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab-bar\default-plain-scroll-right.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab-bar\default-plain-scroll-top.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab-bar\default-scroll-bottom.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab-bar\default-scroll-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab-bar\default-scroll-right.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab-bar\default-scroll-top.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-active-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-active-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-active-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-active-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-active-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-active-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-bottom-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-close.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-active-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-active-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-active-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-active-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-active-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-active-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-left-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-active-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-active-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-active-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-active-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-active-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-active-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-right-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-active-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-active-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-active-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-disabled-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-disabled-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-disabled-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-active-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-active-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-active-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-focus-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-over-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-over-fbg.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-over-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tab\tab-default-top-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tip\tip-default-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tip\tip-default-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tip\tip-form-invalid-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tip\tip-form-invalid-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\default-more-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\default-more.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\default-scroll-bottom.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\default-scroll-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\default-scroll-right.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\default-scroll-top.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\footer-more-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\footer-more.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\footer-scroll-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\toolbar\footer-scroll-right.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tools\tool-sprites-dark.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tools\tool-sprites.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\arrows-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\arrows.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-above.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-add.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-add.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-append.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-below.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-between.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-between.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-no.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-no.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-over.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-over.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-under.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-under.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-yes.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\drop-yes.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-end-minus-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-end-minus.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-end-plus-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-end-plus.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-end-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-end.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-line-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-line.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-minus-nl-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-minus-nl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-minus-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-minus.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-plus-nl-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-plus-nl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-plus-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-plus.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\elbow.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\folder-open-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\folder-open.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\folder-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\folder.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\leaf-rtl.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\leaf.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\tree\loading.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\util\splitter\mini-bottom.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\util\splitter\mini-left.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\util\splitter\mini-right.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\util\splitter\mini-top.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-bottom-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-bottom-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-bottom-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-bottom-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-left-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-left-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-left-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-right-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-right-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-right-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-top-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-collapsed-top-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-left-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-left-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-left-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-right-corners-rtl.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-right-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-right-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-top-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window-header\window-header-default-top-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window\toast\fade-blue.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window\toast\fader.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window\toast\icon16_error.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window\toast\icon16_info.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window\window-default-corners.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\images\window\window-default-sides.gif" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-debug.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-debug_1.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-debug_2.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-rtl-debug.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-rtl-debug_1.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-rtl-debug_2.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-rtl.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-rtl_1.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all-rtl_2.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all_1.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neptune-all_2.css" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neutral\images\magnify.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neutral\images\window\toast\fade-blue.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neutral\images\window\toast\fader.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neutral\images\window\toast\icon16_error.png" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neutral\images\window\toast\icon16_info.png" />
+    <Content Include="Scripts\extjs\theme-neptune\theme-neptune-debug.js" />
+    <Content Include="Scripts\extjs\theme-neptune\theme-neptune.js" />
+    <Content Include="Scripts\extjs\ux\TreePicker.js" />
+    <Content Include="Scripts\functions.js" />
+    <Content Include="Scripts\jquery-3.0.0.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\extjs\theme-neptune\config.rb" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\fonts\ext-watermark.eot" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\fonts\ext-watermark.svg" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\fonts\ext-watermark.ttf" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\fonts\ext-watermark.woff" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\ext\ext-watermark\selection.json" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\Readme.md" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-base\Readme.md" />
+    <Content Include="Scripts\extjs\theme-neptune\resources\theme-neutral\Readme.md" />
+    <Content Include="Scripts\extjs\theme-neptune\theme-neptune-all-debug.scss" />
+    <Content Include="Scripts\extjs\theme-neptune\theme-neptune-all-rtl-debug.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NBSSGK.ZHCG.BLL\NBSSGK.ZHCG.BLL.csproj">
+      <Project>{4d3bc303-a429-46ac-8db7-5632218c7f56}</Project>
+      <Name>NBSSGK.ZHCG.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBSSGK.ZHCG.DAL\NBSSGK.ZHCG.DAL.csproj">
+      <Project>{6c0108af-880d-4027-bfa7-0c48d9d10048}</Project>
+      <Name>NBSSGK.ZHCG.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBSSGK.ZHCG.Model\NBSSGK.ZHCG.Model.csproj">
+      <Project>{aa5f7ace-3796-46a2-93bb-e2ecdb5034f4}</Project>
+      <Name>NBSSGK.ZHCG.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NBSSGK.ZHCG.Utility\NBSSGK.ZHCG.Utility.csproj">
+      <Project>{bdf7b8fb-3eb4-45ff-9ba0-9b00ead7c566}</Project>
+      <Name>NBSSGK.ZHCG.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\FB_NBSSGK.pubxml" />
+    <None Include="Properties\PublishProfiles\nbcg.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6568</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:17605/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

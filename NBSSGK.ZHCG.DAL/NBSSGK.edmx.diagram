@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6b80fb2a2a84451dabc27722ec666d98" Name="关系图1">
+        <EntityTypeShape EntityType="Model.mapelementbiztype" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.unit" Width="1.5" PointX="10.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.user" PointX="2.75" PointY="0.75" Width="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.userstarstat" Width="1.5" PointX="8.625" PointY="4.375" />
+        <EntityTypeShape EntityType="Model.mapelement" Width="1.5" PointX="12.375" PointY="0.875" />
+        <EntityTypeShape EntityType="Model.region" Width="1.5" PointX="10.5" PointY="0.875" />
+        <EntityTypeShape EntityType="Model.bm_carpatrollines" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.bm_carpatrolplans" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.bm_dutyplans" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="Model.bm_dutypostmappings" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.bm_dutyposts" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Model.bm_dutyusers" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Model.bm_userpatrollines" Width="1.5" PointX="4.75" PointY="7.75" />
+        <EntityTypeShape EntityType="Model.bm_userpatrolplans" Width="1.5" PointX="6.75" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

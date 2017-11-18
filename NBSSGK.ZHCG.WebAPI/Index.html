@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>宁波实时管控-后台</title>
+     <link rel='icon' href='/Images/faviconico.ico' type='image/x-ico' />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="Scripts/extjs/theme-neptune/resources/theme-neptune-all.css" rel="stylesheet" />
+    <link href="Css/StyleSheet.css" rel="stylesheet" />
+    <script src="Scripts/extjs/ext-all.js"></script>
+    <script src="Scripts/extjs/ux/TreePicker.js"></script>
+    <script src="Scripts/extjs/locale-zh_CN.js"></script>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <script src="Scripts/jquery.cookie.js"></script>
+    <script src="Scripts/configs.js"></script>
+    <script src="Scripts/functions.js"></script>
+    <script src="Scripts/common.js"></script>
+
+    <script type="text/javascript">
+        Ext.Loader.loadScript({
+            url: "Scripts/arcgisMap.js?" + Math.random(),
+            onLoad: function () {
+                Ext.Loader.loadScript("app/app.js?" + Math.random());
+            }
+        });
+        $(document).ready(function () {
+            setInterval(function () {
+                getData();
+            }, 1000);
+        });
+        function getData() {
+            var date = new Date();
+            var year = date.getFullYear();
+            year = year < 10 ? '0' + year : year;
+            var month = date.getMonth() + 1;
+            month = month < 10 ? '0' + month : month;
+            var days = date.getDate();
+            days = days < 10 ? '0' + days : days;
+            var hours = date.getHours();
+            hours = hours < 10 ? '0' + hours : hours;
+            var minute = date.getMinutes();
+            minute = minute < 10 ? '0' + minute : minute;
+            var second = date.getSeconds();
+            second = second < 10 ? '0' + second : second;
+            $("#SSTime").html(hours + ":" + minute + ":" + second);
+            $("#SSDate").html(year + "-" + month + "-" + days);
+        }
+    </script>
+   
+</head>
+<body>
+    <div id="title" style="height:64px;font-weight: bold;font-size: 30px; color:white; background-color: #3892D4;padding: 15px 10px 0px 12px;">
+       <img src="Images/default_logo.png" />
+    </div>
+    <div class="IndexSystem" style="text-align: center;width: 100%;top:15px;">
+       <div id="SSTime" style="font-size: 25px;color: #32c595;"></div>
+       <div id="SSDate" style="margin-top: 5px;"></div>
+    </div>
+</body>
+</html>

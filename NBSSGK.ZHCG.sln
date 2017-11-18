@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBSSGK.ZHCG.WebAPI", "NBSSGK.ZHCG.WebAPI\NBSSGK.ZHCG.WebAPI.csproj", "{EBDB0295-9CC1-43BD-9F6C-E4825DA94CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBSSGK.ZHCG.Model", "NBSSGK.ZHCG.Model\NBSSGK.ZHCG.Model.csproj", "{AA5F7ACE-3796-46A2-93BB-E2ECDB5034F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBSSGK.ZHCG.DAL", "NBSSGK.ZHCG.DAL\NBSSGK.ZHCG.DAL.csproj", "{6C0108AF-880D-4027-BFA7-0C48D9D10048}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBSSGK.ZHCG.BLL", "NBSSGK.ZHCG.BLL\NBSSGK.ZHCG.BLL.csproj", "{4D3BC303-A429-46AC-8DB7-5632218C7F56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBSSGK.ZHCG.Utility", "NBSSGK.ZHCG.Utility\NBSSGK.ZHCG.Utility.csproj", "{BDF7B8FB-3EB4-45FF-9BA0-9B00EAD7C566}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBDB0295-9CC1-43BD-9F6C-E4825DA94CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBDB0295-9CC1-43BD-9F6C-E4825DA94CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBDB0295-9CC1-43BD-9F6C-E4825DA94CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBDB0295-9CC1-43BD-9F6C-E4825DA94CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA5F7ACE-3796-46A2-93BB-E2ECDB5034F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA5F7ACE-3796-46A2-93BB-E2ECDB5034F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA5F7ACE-3796-46A2-93BB-E2ECDB5034F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA5F7ACE-3796-46A2-93BB-E2ECDB5034F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C0108AF-880D-4027-BFA7-0C48D9D10048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C0108AF-880D-4027-BFA7-0C48D9D10048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C0108AF-880D-4027-BFA7-0C48D9D10048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C0108AF-880D-4027-BFA7-0C48D9D10048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3BC303-A429-46AC-8DB7-5632218C7F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3BC303-A429-46AC-8DB7-5632218C7F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3BC303-A429-46AC-8DB7-5632218C7F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3BC303-A429-46AC-8DB7-5632218C7F56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF7B8FB-3EB4-45FF-9BA0-9B00EAD7C566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF7B8FB-3EB4-45FF-9BA0-9B00EAD7C566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF7B8FB-3EB4-45FF-9BA0-9B00EAD7C566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF7B8FB-3EB4-45FF-9BA0-9B00EAD7C566}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://218.108.93.243:8080/tfs/year2016
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = NBSSGK.ZHCG.BLL\\NBSSGK.ZHCG.BLL.csproj
+		SccProjectName1 = NBSSGK.ZHCG.BLL
+		SccLocalPath1 = NBSSGK.ZHCG.BLL
+		SccProjectUniqueName2 = NBSSGK.ZHCG.DAL\\NBSSGK.ZHCG.DAL.csproj
+		SccProjectName2 = NBSSGK.ZHCG.DAL
+		SccLocalPath2 = NBSSGK.ZHCG.DAL
+		SccProjectUniqueName3 = NBSSGK.ZHCG.Model\\NBSSGK.ZHCG.Model.csproj
+		SccProjectName3 = NBSSGK.ZHCG.Model
+		SccLocalPath3 = NBSSGK.ZHCG.Model
+		SccProjectUniqueName4 = NBSSGK.ZHCG.WebAPI\\NBSSGK.ZHCG.WebAPI.csproj
+		SccProjectName4 = NBSSGK.ZHCG.WebAPI
+		SccLocalPath4 = NBSSGK.ZHCG.WebAPI
+		SccProjectUniqueName5 = NBSSGK.ZHCG.Utility\\NBSSGK.ZHCG.Utility.csproj
+		SccProjectName5 = NBSSGK.ZHCG.Utility
+		SccLocalPath5 = NBSSGK.ZHCG.Utility
+	EndGlobalSection
+EndGlobal

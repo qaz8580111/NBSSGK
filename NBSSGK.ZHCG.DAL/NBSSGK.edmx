@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bm_carpatrollines">
+          <Key>
+            <PropertyRef Name="lineid" />
+          </Key>
+          <Property Name="lineid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" />
+          <Property Name="createddate" Type="datetime" Precision="0" />
+          <Property Name="linename" Type="varchar" MaxLength="2000" />
+          <Property Name="linecode" Type="varchar" MaxLength="2000" />
+          <Property Name="linedesc" Type="varchar" MaxLength="4000" />
+          <Property Name="startlocation" Type="varchar" MaxLength="2000" />
+          <Property Name="endlocation" Type="varchar" MaxLength="2000" />
+          <Property Name="diffculty" Type="varchar" MaxLength="1000" />
+          <Property Name="unitid" Type="int" />
+          <Property Name="linedata" Type="varchar" MaxLength="4000" />
+          <Property Name="regionid" Type="int" />
+        </EntityType>
+        <EntityType Name="bm_carpatrolplans">
+          <Key>
+            <PropertyRef Name="planid" />
+          </Key>
+          <Property Name="planid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" />
+          <Property Name="createddate" Type="datetime" Precision="0" />
+          <Property Name="carid" Type="int" />
+          <Property Name="lineid" Type="int" />
+          <Property Name="startdate" Type="date" />
+          <Property Name="enddate" Type="date" />
+          <Property Name="starttime" Type="int" />
+          <Property Name="endtime" Type="int" />
+          <Property Name="regionid" Type="int" />
+        </EntityType>
+        <EntityType Name="bm_dutyplans">
+          <Key>
+            <PropertyRef Name="dutyid" />
+          </Key>
+          <Property Name="dutyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" />
+          <Property Name="createddate" Type="datetime" Precision="0" />
+          <Property Name="statsdate" Type="datetime" Precision="0" />
+          <Property Name="zhzid" Type="int" />
+          <Property Name="zbzid" Type="int" />
+          <Property Name="regionid" Type="int" />
+          <Property Name="starttime" Type="datetime" Precision="0" />
+          <Property Name="endtime" Type="datetime" Precision="0" />
+          <Property Name="subject" Type="varchar" MaxLength="4000" />
+          <Property Name="description" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="bm_dutypostmappings">
+          <Key>
+            <PropertyRef Name="regionid" />
+            <PropertyRef Name="dutypostid" />
+            <PropertyRef Name="unitid" />
+          </Key>
+          <Property Name="regionid" Type="int" Nullable="false" />
+          <Property Name="dutypostid" Type="int" Nullable="false" />
+          <Property Name="unitid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bm_dutyposts">
+          <Key>
+            <PropertyRef Name="postid" />
+          </Key>
+          <Property Name="postid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" />
+          <Property Name="createddate" Type="datetime" Precision="0" />
+          <Property Name="seqno" Type="int" />
+          <Property Name="regiontypeid" Type="int" />
+          <Property Name="postname" Type="varchar" MaxLength="4000" />
+          <Property Name="postcode" Type="varchar" MaxLength="4000" />
+          <Property Name="postdesc" Type="varchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="bm_dutyusers">
+          <Key>
+            <PropertyRef Name="dutyuserid" />
+          </Key>
+          <Property Name="dutyuserid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dutyid" Type="int" />
+          <Property Name="postid" Type="int" />
+          <Property Name="userid" Type="int" />
+          <Property Name="regionid" Type="int" />
+        </EntityType>
+        <EntityType Name="bm_userpatrollines">
+          <Key>
+            <PropertyRef Name="lineid" />
+          </Key>
+          <Property Name="lineid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" />
+          <Property Name="createddate" Type="datetime" Precision="0" />
+          <Property Name="linename" Type="varchar" MaxLength="1000" />
+          <Property Name="linecode" Type="varchar" MaxLength="1000" />
+          <Property Name="linedesc" Type="varchar" MaxLength="4000" />
+          <Property Name="startlocation" Type="varchar" MaxLength="4000" />
+          <Property Name="endlocation" Type="varchar" MaxLength="4000" />
+          <Property Name="diffculty" Type="varchar" MaxLength="500" />
+          <Property Name="unitid" Type="int" />
+          <Property Name="linedata" Type="varchar" MaxLength="4000" />
+          <Property Name="regionid" Type="int" />
+        </EntityType>
+        <EntityType Name="bm_userpatrolplans">
+          <Key>
+            <PropertyRef Name="planid" />
+          </Key>
+          <Property Name="planid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modifieddate" Type="datetime" Precision="0" />
+          <Property Name="createddate" Type="datetime" Precision="0" />
+          <Property Name="lineid" Type="int" />
+          <Property Name="userid" Type="int" />
+          <Property Name="startdate" Type="date" />
+          <Property Name="enddate" Type="date" />
+          <Property Name="starttime" Type="int" />
+          <Property Name="endtime" Type="int" />
+          <Property Name="regionid" Type="int" />
+        </EntityType>
+        <EntityType Name="mapelementbiztypes">
+          <Key>
+            <PropertyRef Name="mapelementcategoryid" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="mapelementcategoryid" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="parentid" Type="int" />
+          <Property Name="level" Type="int" />
+          <Property Name="path" Type="text" />
+          <Property Name="seqno" Type="int" />
+        </EntityType>
+        <EntityType Name="mapelements">
+          <Key>
+            <PropertyRef Name="mapelementcategoryid" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="mapelementcategoryid" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="100" />
+          <Property Name="avatar" Type="varchar" MaxLength="4000" />
+          <Property Name="regionid" Type="int" />
+          <Property Name="unitid" Type="int" />
+          <Property Name="mapelementbiztypeid" Type="int" />
+          <Property Name="mapelementdevicetypeid" Type="int" />
+          <Property Name="staticproperties" Type="text" />
+          <Property Name="dynamicproperties" Type="text" />
+          <Property Name="isonline" Type="int" />
+          <Property Name="mapelementstatusid" Type="int" />
+          <Property Name="reservedfield1" Type="varchar" MaxLength="4000" />
+          <Property Name="reservedfield2" Type="varchar" MaxLength="4000" />
+          <Property Name="reservedfield3" Type="varchar" MaxLength="4000" />
+          <Property Name="reservedfield4" Type="varchar" MaxLength="4000" />
+          <Property Name="reservedfield5" Type="text" />
+          <Property Name="reservedfield6" Type="text" />
+          <Property Name="reservedfield7" Type="int" />
+          <Property Name="reservedfield8" Type="int" />
+          <Property Name="reservedfield9" Type="datetime" Precision="0" />
+          <Property Name="reservedfield10" Type="datetime" Precision="0" />
+          <Property Name="createdtime" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="regions">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="100" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="regiontypeid" Type="int" />
+          <Property Name="parentid" Type="int" />
+          <Property Name="level" Type="int" />
+          <Property Name="path" Type="text" />
+          <Property Name="shape" Type="text" />
+          <Property Name="seqno" Type="int" />
+        </EntityType>
+        <EntityType Name="units">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="100" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="unittypeid" Type="int" />
+          <Property Name="parentid" Type="int" />
+          <Property Name="level" Type="int" />
+          <Property Name="path" Type="text" />
+          <Property Name="seqno" Type="int" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="100" />
+          <Property Name="regionid" Type="int" />
+          <Property Name="unitid" Type="int" />
+          <Property Name="loginname" Type="varchar" MaxLength="100" />
+          <Property Name="loginpassword" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="userstarstats">
+          <Key>
+            <PropertyRef Name="STATID" />
+          </Key>
+          <Property Name="STATID" Type="int" Nullable="false" />
+          <Property Name="MODIFIEDDATE" Type="datetime" Precision="0" />
+          <Property Name="CREATEDDATE" Type="datetime" Precision="0" />
+          <Property Name="USERID" Type="int" Nullable="false" />
+          <Property Name="UNITID" Type="int" Nullable="false" />
+          <Property Name="REGIONID" Type="int" Nullable="false" />
+          <Property Name="EVENTNUM" Type="int" Nullable="false" />
+          <Property Name="STATDATE" Type="datetime" Precision="0" />
+          <Property Name="SEX" Type="varchar" MaxLength="255" />
+          <Property Name="USERNAME" Type="varchar" MaxLength="255" />
+          <Property Name="REGIONNAME" Type="varchar" MaxLength="255" />
+          <Property Name="PHOTOURL" Type="varchar" MaxLength="255" />
+          <Property Name="mapelementbiztypesid" Type="int" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="bm_carpatrollines" EntityType="Self.bm_carpatrollines" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="bm_carpatrolplans" EntityType="Self.bm_carpatrolplans" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="bm_dutyplans" EntityType="Self.bm_dutyplans" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="bm_dutypostmappings" EntityType="Self.bm_dutypostmappings" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="bm_dutyposts" EntityType="Self.bm_dutyposts" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="bm_dutyusers" EntityType="Self.bm_dutyusers" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="bm_userpatrollines" EntityType="Self.bm_userpatrollines" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="bm_userpatrolplans" EntityType="Self.bm_userpatrolplans" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="mapelementbiztypes" EntityType="Self.mapelementbiztypes" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="mapelements" EntityType="Self.mapelements" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="regions" EntityType="Self.regions" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="units" EntityType="Self.units" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="ssgk_front" store:Type="Tables" />
+          <EntitySet Name="userstarstats" EntityType="Self.userstarstats" Schema="ssgk_front" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="mapelementbiztypes" EntityType="Model.mapelementbiztype" />
+          <EntitySet Name="units" EntityType="Model.unit" />
+          <EntitySet Name="users" EntityType="Model.user" />
+          <EntitySet Name="userstarstats" EntityType="Model.userstarstat" />
+          <EntitySet Name="mapelements" EntityType="Model.mapelement" />
+          <EntitySet Name="regions" EntityType="Model.region" />
+          <EntitySet Name="bm_carpatrollines" EntityType="Model.bm_carpatrollines" />
+          <EntitySet Name="bm_carpatrolplans" EntityType="Model.bm_carpatrolplans" />
+          <EntitySet Name="bm_dutyplans" EntityType="Model.bm_dutyplans" />
+          <EntitySet Name="bm_dutypostmappings" EntityType="Model.bm_dutypostmappings" />
+          <EntitySet Name="bm_dutyposts" EntityType="Model.bm_dutyposts" />
+          <EntitySet Name="bm_dutyusers" EntityType="Model.bm_dutyusers" />
+          <EntitySet Name="bm_userpatrollines" EntityType="Model.bm_userpatrollines" />
+          <EntitySet Name="bm_userpatrolplans" EntityType="Model.bm_userpatrolplans" />
+        </EntityContainer>
+        <EntityType Name="mapelementbiztype">
+          <Key>
+            <PropertyRef Name="mapelementcategoryid" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="mapelementcategoryid" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="parentid" Type="Int32" />
+          <Property Name="level" Type="Int32" />
+          <Property Name="path" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
+          <Property Name="seqno" Type="Int32" />
+        </EntityType>
+        <EntityType Name="unit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="unittypeid" Type="Int32" />
+          <Property Name="parentid" Type="Int32" />
+          <Property Name="level" Type="Int32" />
+          <Property Name="path" Type="String" MaxLength="65535" Unicode="false" FixedLength="false" />
+          <Property Name="seqno" Type="Int32" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Nullable="false" Type="Int32" />
+          <Property Name="code" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="regionid" Type="Int32" />
+          <Property Name="unitid" Type="Int32" />
+          <Property Name="loginname" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="loginpassword" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+        </EntityType>
+        <EntityType Name="userstarstat">
+          <Key>
+            <PropertyRef Name="STATID" />
+          </Key>
+          <Property Type="Int32" Name="STATID" Nullable="false" />
+          <Property Type="DateTime" Name="MODIFIEDDATE" Precision="0" />
+          <Property Type="DateTime" Name="CREATEDDATE" Precision="0" />
+          <Property Type="Int32" Name="USERID" Nullable="false" />
+          <Property Type="Int32" Name="UNITID" Nullable="false" />
+          <Property Type="Int32" Name="REGIONID" Nullable="false" />
+          <Property Type="Int32" Name="EVENTNUM" Nullable="false" />
+          <Property Type="DateTime" Name="STATDATE" Precision="0" />
+          <Property Type="String" Name="SEX" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="USERNAME" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="REGIONNAME" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PHOTOURL" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="mapelementbiztypesid" />
+        </EntityType>
+        <EntityType Name="mapelement">
+          <Key>
+            <PropertyRef Name="mapelementcategoryid" />
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="mapelementcategoryid" Nullable="false" />
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="code" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="avatar" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="regionid" />
+          <Property Type="Int32" Name="unitid" />
+          <Property Type="Int32" Name="mapelementbiztypeid" />
+          <Property Type="Int32" Name="mapelementdevicetypeid" />
+          <Property Type="String" Name="staticproperties" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dynamicproperties" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="isonline" />
+          <Property Type="Int32" Name="mapelementstatusid" />
+          <Property Type="String" Name="reservedfield1" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="reservedfield2" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="reservedfield3" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="reservedfield4" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="reservedfield5" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="reservedfield6" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="reservedfield7" />
+          <Property Type="Int32" Name="reservedfield8" />
+          <Property Type="DateTime" Name="reservedfield9" />
+          <Property Type="DateTime" Name="reservedfield10" />
+          <Property Type="DateTime" Name="createdtime" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="code" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="regiontypeid" />
+          <Property Type="Int32" Name="parentid" />
+          <Property Type="Int32" Name="level" />
+          <Property Type="String" Name="path" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="shape" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="seqno" />
+        </EntityType>
+        <EntityType Name="bm_carpatrollines">
+          <Key>
+            <PropertyRef Name="lineid" />
+          </Key>
+          <Property Name="lineid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="linename" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="linecode" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="linedesc" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="startlocation" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="endlocation" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="diffculty" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="unitid" Type="Int32" />
+          <Property Name="linedata" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="regionid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="bm_carpatrolplans">
+          <Key>
+            <PropertyRef Name="planid" />
+          </Key>
+          <Property Name="planid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="carid" Type="Int32" />
+          <Property Name="lineid" Type="Int32" />
+          <Property Name="startdate" Type="DateTime" />
+          <Property Name="enddate" Type="DateTime" />
+          <Property Name="starttime" Type="Int32" />
+          <Property Name="endtime" Type="Int32" />
+          <Property Name="regionid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="bm_dutyplans">
+          <Key>
+            <PropertyRef Name="dutyid" />
+          </Key>
+          <Property Name="dutyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="statsdate" Type="DateTime" />
+          <Property Name="zhzid" Type="Int32" />
+          <Property Name="zbzid" Type="Int32" />
+          <Property Name="regionid" Type="Int32" />
+          <Property Name="starttime" Type="DateTime" />
+          <Property Name="endtime" Type="DateTime" />
+          <Property Name="subject" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bm_dutypostmappings">
+          <Key>
+            <PropertyRef Name="regionid" />
+            <PropertyRef Name="dutypostid" />
+            <PropertyRef Name="unitid" />
+          </Key>
+          <Property Name="regionid" Type="Int32" Nullable="false" />
+          <Property Name="dutypostid" Type="Int32" Nullable="false" />
+          <Property Name="unitid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bm_dutyposts">
+          <Key>
+            <PropertyRef Name="postid" />
+          </Key>
+          <Property Name="postid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="seqno" Type="Int32" />
+          <Property Name="regiontypeid" Type="Int32" />
+          <Property Name="postname" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="postcode" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="postdesc" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bm_dutyusers">
+          <Key>
+            <PropertyRef Name="dutyuserid" />
+          </Key>
+          <Property Name="dutyuserid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dutyid" Type="Int32" />
+          <Property Name="postid" Type="Int32" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="regionid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="bm_userpatrollines">
+          <Key>
+            <PropertyRef Name="lineid" />
+          </Key>
+          <Property Name="lineid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="linename" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="linecode" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="linedesc" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="startlocation" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="endlocation" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="diffculty" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="unitid" Type="Int32" />
+          <Property Name="linedata" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="regionid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="bm_userpatrolplans">
+          <Key>
+            <PropertyRef Name="planid" />
+          </Key>
+          <Property Name="planid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modifieddate" Type="DateTime" />
+          <Property Name="createddate" Type="DateTime" />
+          <Property Name="lineid" Type="Int32" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="startdate" Type="DateTime" />
+          <Property Name="enddate" Type="DateTime" />
+          <Property Name="starttime" Type="Int32" />
+          <Property Name="endtime" Type="Int32" />
+          <Property Name="regionid" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="mapelementbiztypes">
+            <EntityTypeMapping TypeName="Model.mapelementbiztype">
+              <MappingFragment StoreEntitySet="mapelementbiztypes">
+                <ScalarProperty Name="mapelementcategoryid" ColumnName="mapelementcategoryid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="seqno" ColumnName="seqno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="units">
+            <EntityTypeMapping TypeName="Model.unit">
+              <MappingFragment StoreEntitySet="units">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="unittypeid" ColumnName="unittypeid" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="seqno" ColumnName="seqno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="Model.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="unitid" ColumnName="unitid" />
+                <ScalarProperty Name="loginname" ColumnName="loginname" />
+                <ScalarProperty Name="loginpassword" ColumnName="loginpassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userstarstats">
+            <EntityTypeMapping TypeName="Model.userstarstat">
+              <MappingFragment StoreEntitySet="userstarstats">
+                <ScalarProperty Name="mapelementbiztypesid" ColumnName="mapelementbiztypesid" />
+                <ScalarProperty Name="PHOTOURL" ColumnName="PHOTOURL" />
+                <ScalarProperty Name="REGIONNAME" ColumnName="REGIONNAME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="STATDATE" ColumnName="STATDATE" />
+                <ScalarProperty Name="EVENTNUM" ColumnName="EVENTNUM" />
+                <ScalarProperty Name="REGIONID" ColumnName="REGIONID" />
+                <ScalarProperty Name="UNITID" ColumnName="UNITID" />
+                <ScalarProperty Name="USERID" ColumnName="USERID" />
+                <ScalarProperty Name="CREATEDDATE" ColumnName="CREATEDDATE" />
+                <ScalarProperty Name="MODIFIEDDATE" ColumnName="MODIFIEDDATE" />
+                <ScalarProperty Name="STATID" ColumnName="STATID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mapelements">
+            <EntityTypeMapping TypeName="Model.mapelement">
+              <MappingFragment StoreEntitySet="mapelements">
+                <ScalarProperty Name="createdtime" ColumnName="createdtime" />
+                <ScalarProperty Name="reservedfield10" ColumnName="reservedfield10" />
+                <ScalarProperty Name="reservedfield9" ColumnName="reservedfield9" />
+                <ScalarProperty Name="reservedfield8" ColumnName="reservedfield8" />
+                <ScalarProperty Name="reservedfield7" ColumnName="reservedfield7" />
+                <ScalarProperty Name="reservedfield6" ColumnName="reservedfield6" />
+                <ScalarProperty Name="reservedfield5" ColumnName="reservedfield5" />
+                <ScalarProperty Name="reservedfield4" ColumnName="reservedfield4" />
+                <ScalarProperty Name="reservedfield3" ColumnName="reservedfield3" />
+                <ScalarProperty Name="reservedfield2" ColumnName="reservedfield2" />
+                <ScalarProperty Name="reservedfield1" ColumnName="reservedfield1" />
+                <ScalarProperty Name="mapelementstatusid" ColumnName="mapelementstatusid" />
+                <ScalarProperty Name="isonline" ColumnName="isonline" />
+                <ScalarProperty Name="dynamicproperties" ColumnName="dynamicproperties" />
+                <ScalarProperty Name="staticproperties" ColumnName="staticproperties" />
+                <ScalarProperty Name="mapelementdevicetypeid" ColumnName="mapelementdevicetypeid" />
+                <ScalarProperty Name="mapelementbiztypeid" ColumnName="mapelementbiztypeid" />
+                <ScalarProperty Name="unitid" ColumnName="unitid" />
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="avatar" ColumnName="avatar" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="mapelementcategoryid" ColumnName="mapelementcategoryid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="regions">
+            <EntityTypeMapping TypeName="Model.region">
+              <MappingFragment StoreEntitySet="regions">
+                <ScalarProperty Name="seqno" ColumnName="seqno" />
+                <ScalarProperty Name="shape" ColumnName="shape" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="regiontypeid" ColumnName="regiontypeid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bm_carpatrollines">
+            <EntityTypeMapping TypeName="Model.bm_carpatrollines">
+              <MappingFragment StoreEntitySet="bm_carpatrollines">
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="linedata" ColumnName="linedata" />
+                <ScalarProperty Name="unitid" ColumnName="unitid" />
+                <ScalarProperty Name="diffculty" ColumnName="diffculty" />
+                <ScalarProperty Name="endlocation" ColumnName="endlocation" />
+                <ScalarProperty Name="startlocation" ColumnName="startlocation" />
+                <ScalarProperty Name="linedesc" ColumnName="linedesc" />
+                <ScalarProperty Name="linecode" ColumnName="linecode" />
+                <ScalarProperty Name="linename" ColumnName="linename" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="lineid" ColumnName="lineid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bm_carpatrolplans">
+            <EntityTypeMapping TypeName="Model.bm_carpatrolplans">
+              <MappingFragment StoreEntitySet="bm_carpatrolplans">
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="lineid" ColumnName="lineid" />
+                <ScalarProperty Name="carid" ColumnName="carid" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="planid" ColumnName="planid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bm_dutyplans">
+            <EntityTypeMapping TypeName="Model.bm_dutyplans">
+              <MappingFragment StoreEntitySet="bm_dutyplans">
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="zbzid" ColumnName="zbzid" />
+                <ScalarProperty Name="zhzid" ColumnName="zhzid" />
+                <ScalarProperty Name="statsdate" ColumnName="statsdate" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="dutyid" ColumnName="dutyid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bm_dutypostmappings">
+            <EntityTypeMapping TypeName="Model.bm_dutypostmappings">
+              <MappingFragment StoreEntitySet="bm_dutypostmappings">
+                <ScalarProperty Name="unitid" ColumnName="unitid" />
+                <ScalarProperty Name="dutypostid" ColumnName="dutypostid" />
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bm_dutyposts">
+            <EntityTypeMapping TypeName="Model.bm_dutyposts">
+              <MappingFragment StoreEntitySet="bm_dutyposts">
+                <ScalarProperty Name="postdesc" ColumnName="postdesc" />
+                <ScalarProperty Name="postcode" ColumnName="postcode" />
+                <ScalarProperty Name="postname" ColumnName="postname" />
+                <ScalarProperty Name="regiontypeid" ColumnName="regiontypeid" />
+                <ScalarProperty Name="seqno" ColumnName="seqno" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="postid" ColumnName="postid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bm_dutyusers">
+            <EntityTypeMapping TypeName="Model.bm_dutyusers">
+              <MappingFragment StoreEntitySet="bm_dutyusers">
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="postid" ColumnName="postid" />
+                <ScalarProperty Name="dutyid" ColumnName="dutyid" />
+                <ScalarProperty Name="dutyuserid" ColumnName="dutyuserid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bm_userpatrollines">
+            <EntityTypeMapping TypeName="Model.bm_userpatrollines">
+              <MappingFragment StoreEntitySet="bm_userpatrollines">
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="linedata" ColumnName="linedata" />
+                <ScalarProperty Name="unitid" ColumnName="unitid" />
+                <ScalarProperty Name="diffculty" ColumnName="diffculty" />
+                <ScalarProperty Name="endlocation" ColumnName="endlocation" />
+                <ScalarProperty Name="startlocation" ColumnName="startlocation" />
+                <ScalarProperty Name="linedesc" ColumnName="linedesc" />
+                <ScalarProperty Name="linecode" ColumnName="linecode" />
+                <ScalarProperty Name="linename" ColumnName="linename" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="lineid" ColumnName="lineid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bm_userpatrolplans">
+            <EntityTypeMapping TypeName="Model.bm_userpatrolplans">
+              <MappingFragment StoreEntitySet="bm_userpatrolplans">
+                <ScalarProperty Name="regionid" ColumnName="regionid" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="lineid" ColumnName="lineid" />
+                <ScalarProperty Name="createddate" ColumnName="createddate" />
+                <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+                <ScalarProperty Name="planid" ColumnName="planid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
